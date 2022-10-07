@@ -20,19 +20,17 @@ namespace MveMovie5.Controllers
         //
         //Get: /HelloWorld/Welcome/
        // public IActionResult Index()
-       //public string Welcome(string name, int numTimes = 1)
-       public string Welcome(string name, int ID =1)
-
+       public IActionResult Welcome(string name, int numTimes = 1)
         {
-            return HtmlEncoder.Default.Encode($"Hello {name}, ID: {ID}");
+            ViewData["Message"] = "Hello " + name;
+            ViewData["NumTimes"] = numTimes;
 
-           //return HtmlEncoder.Default.Encode($"Hello {name}, NumTimes is: {numTimes}");
-            
-            
-             
-            //return "This is the Welcome Action method..";
-            
-            //return View();
+            return View();
+
+        }
+       
+
+      
         }
     }
-}
+
